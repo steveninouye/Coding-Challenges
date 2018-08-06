@@ -24,30 +24,24 @@
 # information, we would not give it to you on the timed challenge. :-)
 
 def caesar_cipher(offset, string)
-  result = ""
-
-  string.each_char do |letter|
-
-    # if the letter ASCII code is NOT between 97 ("a") and 122 ("z") (inclusive), 
-    # add it to our result without shifting it and skip to the next letter.
-    unless letter.ord.between?("a".ord, "z".ord)
-      result << letter
-      next 
+  result = ''
+  i = 0
+  while i < string.length
+    letter_code = string[i].ord
+    if letter_code < 97 || letter_code > 122
+      result += string[i]
+    else
+      if (letter_code + offset) > 122
+        letter_code = letter_code - 122 + 96 + offset
+      else
+        letter_code = letter_code + offset
+      end
+      result += letter_code.chr
     end
-
-    # "a".ord == 97, the ASCII code for "a"
-    letter_code = letter.ord - "a".ord
-
-    # shift the code, and use % 26 to wrap it (there are 26 letters)
-    shifted_code = (letter_code + offset) % 26  
-
-    # to convert back to ASCII, add "a".ord (or 97) back 
-    ascii_code = shifted_code + "a".ord
-
-    result << ascii_code.chr
-  end
-
-  result
+    i += 1
+  end 
+  puts(result)
+  return result
 end
 
 # These are tests to check that your code is working. After writing

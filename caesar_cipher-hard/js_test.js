@@ -24,7 +24,7 @@
 // information, we would not give it to you on the timed challenge. :-)
 
 function caesar_cipher(offset, string) {
-    let x = string
+    return string
         .split('')
         .map((letter) => {
             let letterCode = letter.charCodeAt(0);
@@ -39,7 +39,6 @@ function caesar_cipher(offset, string) {
             }
         })
         .join('');
-    return x;
 }
 //   result = ""
 
