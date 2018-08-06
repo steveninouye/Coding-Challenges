@@ -7,6 +7,19 @@
 # Difficulty: hard.
 
 def num_repeats(string)
+    found_letters = []
+    idx1 = 0
+    while idx1 < string.length
+        idx2 = idx1 + 1
+        while idx2 < string.length
+            if string[idx1] == string[idx2] && !found_letters.include?(string[idx1])
+                found_letters.push(string[idx1])
+            end
+            idx2 += 1
+        end
+        idx1 += 1
+    end    
+    return found_letters.length
 end
 
 # These are tests to check that your code is working. After writing
