@@ -15,10 +15,10 @@ function nextBigger(num) {
     // start check with the tens digit and move to the left for each loop
     // check if there is a number to the right if there is a larger number
     for (var digitIdx = numArr.length - 2; digitIdx >= 0; digitIdx--) {
-        let trailingNums = numArr.slice(digitIdx + 1).sort();
+        let trailingNums = numArr.slice(digitIdx + 1);
         let digit = numArr[digitIdx];
         // if there is a digit greater than the digit checking
-        if (trailingNums.some((e) => e > digit)) {
+        if (Math.max(...trailingNums) > digit) {
             // find the index of that digit
             let nextNumIdx = trailingNums.findIndex((e) => e > digit);
             // find the value of the digit and store it while replacing it with the digit
