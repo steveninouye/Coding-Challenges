@@ -30,12 +30,31 @@
 var spiralize = function(size) {
   let directions = ['rgt', 'dwn', 'lft', 'up'];
   let answ = [];
+  // set starting position from top left of box
+  let xCoor = 0; // positive goes right in box
+  let yCoor = 0; // positive goes down in box
+  // make the box `size` by `size` filled with zeros
   for (let i = 0; i < size; i++) {
     answ.push([]);
     for (let x = 0; x < size; x++) {
       answ[i].push(0);
     }
   }
+  // set the first 1
+  answ[yCoor][xCoor] = 1;
+  // recursive function to check two steps ahead
+  const checkTwoSteps = (xCoor, yCoor, direction) => {
+    if(direction === 'rgt'){
+
+    } else if (direction === 'dwn'){
+
+    } else if (direction === 'lft'){
+
+    } else if (direction === 'up') {
+
+    }
+  }
+
   return answ;
 };
 
